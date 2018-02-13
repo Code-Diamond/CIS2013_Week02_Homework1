@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 using namespace std;
 
 //global variables
@@ -7,24 +8,43 @@ using namespace std;
 char continuation, condition, operation;
 int x, y;
 
+void retrieveXAndY()
+{
+    //Retrieve x and y values from user.
+    cout << "Now type the first number (x): ";
+    cin >> x;
+    cout << "Now type the second number (y): "; 
+    cin >> y;
+}
+
 void calculate()
 {
     switch (operation)
     {
         case '+':
-            cout << x+y;
+            retrieveXAndY();
+            cout << x << " + " << y << " = " << x+y;
             break;
         case '-':
-            cout << x-y;
+            retrieveXAndY();
+            cout << x << " - " << y << " = " << x-y;
             break;
         case '/':
-            cout << x/y;
+            retrieveXAndY();
+            cout << x << " / " << y << " = " << (float) x/y;
             break;
         case '*':
-            cout << x*y;
+            retrieveXAndY();
+            cout << x << " * " << y << " = " << x*y;
             break;
         case '%':
-            cout << x%y;
+            retrieveXAndY();
+            cout << x << " % " << y << " = " <<  x%y;
+            break;
+        case 's':
+            cout << "What number would you like to square root?: ";
+            cin >> x;
+            cout << "The square root of " << x << " is " << sqrt(x) << ".";
             break;
     }
     
@@ -52,22 +72,12 @@ void continueAndClear()
 int main()
 {
     condition = true;
-    
-    //TO:DO
-        //string calculatorType;
-        //cout << "Which type of calculator do you wish to use?";
-    
+        
     while(condition)
     {
         //Retrieve the user's operation in the form of a char datatype.
-        cout << "Do you want to do addition, division, subtraction, or multiplication?\n Type \"/\", \"*\", \"-\", \"+\", \"%\" : ";
+        cout << "Do you want to do addition, division, subtraction, multiplication, modulus, or a square root operation?\n Type \"/\", \"*\", \"-\", \"+\", \"%\", or \"s\": ";
     	cin >> operation;
-    
-        //Retrieve x and y values from user.
-        cout << "Now type the first number (x): ";
-        cin >> x;
-        cout << "Now type the second number (y): "; 
-        cin >> y;
     
         //Determine the user's math operation through a switch.
         calculate();
@@ -77,8 +87,6 @@ int main()
         cin >> continuation;
     	
     	continueAndClear();
-
-    	
     	
     }
  

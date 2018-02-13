@@ -23,6 +23,9 @@ void calculate()
         case '*':
             cout << x*y;
             break;
+        case '%':
+            cout << x%y;
+            break;
     }
     
 }
@@ -57,7 +60,7 @@ int main()
     while(condition)
     {
         //Retrieve the user's operation in the form of a char datatype.
-        cout << "Do you want to do addition, division, subtraction, or multiplication?\n Type \"/\", \"*\", \"-\", or \"+\": ";
+        cout << "Do you want to do addition, division, subtraction, or multiplication?\n Type \"/\", \"*\", \"-\", \"+\", \"%\" : ";
     	cin >> operation;
     
         //Retrieve x and y values from user.
